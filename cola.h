@@ -6,14 +6,15 @@ class cola{
 public:
 	cola( int );
 	void add( type );
-	void extract();
+	type extract();
 	void show();
+	bool empty();
 private:
 	type *container;
 	int tam;
-	int last; 
+	int last;
 
-	bool empty();
+
 	bool llena();
 };
 
@@ -31,7 +32,7 @@ bool cola<type>::empty(){
 
 template <class type>
 bool cola<type>::llena(){
-	return ( last == tam ); 
+	return ( last == tam );
 }
 
 template <class type>
@@ -45,7 +46,7 @@ void cola<type>::add( type data ){
 }
 
 template <class type>
-void cola<type>::extract(){
+type cola<type>::extract(){
 	type buffer;
 	if ( !empty() ){
 		buffer = container[0];
@@ -53,11 +54,13 @@ void cola<type>::extract(){
 			container[i] = container[i+1];
 		}
 		last--;
-		cout << "El ultimo elemento es: " << buffer << endl;
+		// cout << "El ultimo elemento es: " << buffer << endl;
+		return buffer;
 	}else{
 		cout << "La cola esta vacia :((((" << endl;
+		return 0;
 	}
-	
+
 }
 
 template <class type>

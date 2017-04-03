@@ -9,7 +9,9 @@ public:
 	type pop();
 	void show();
 	int getTop();
-	
+	bool empty();
+	bool vacia();
+
 
 
 
@@ -18,8 +20,8 @@ public:
 		int tam;
 		int top;
 
-		bool empty();
-		bool vacia();
+
+
 };
 template < class type>
 int pila< type >::getTop(){
@@ -46,8 +48,9 @@ pila<type>::pila( int tam ){
 template <class type>
 void pila<type>::push( type data ){
 	if ( !empty() ){
-		top++; 
+		top++;
 		container[top] = data;
+		cout << "Dato agregado" << endl;
 	}else{
 		cout << "Ya no hay espacio en la pila :("<< endl;
 	}
@@ -59,7 +62,7 @@ type pila<type>::pop(){
 		cout << "El elemento que hizo pop fue: " << container[top]<< endl;
 		top--;
 	}else{
-		cout << "Pila vacia :(" << endl; 
+		cout << "Pila vacia :(" << endl;
 	}
 }
 template<class type>
